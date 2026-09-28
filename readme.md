@@ -335,6 +335,3 @@ The paper doesn't cover this; GPT-4 did not exist when this paper was written in
 | Short paper | Full text used as single chunk, no splitting |
 | Non-English paper | Warning printed, pipeline continues |
 | Duplicate chunks | Deduplicated before sending to LLM |
-
-## Out of Scope (per assessment)
-No UI beyond CLI, no auth/deployment, no non-arXiv sources, no fine-tuning.
