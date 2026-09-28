@@ -429,43 +429,6 @@ Answer:
 
 GROUNDING_MIN_SIMILARITY = 0.01  # below this, treat as "not in paper"
 
-
-#one that works
-'''
-def qa_node(state: AgentState, question: str) -> dict:
-    collection = state["vector_store_ref"]
-    q_vec = embed_texts([question])[0]
-
-    results = collection.query(query_embeddings=[q_vec], n_results=4)
-    retrieved_ids = results["ids"][0]
-    retrieved_texts = results["documents"][0]
-    distances = results["distances"][0]
-
-    print(f"Question: {question}")  # DEBUG
-    print(f"Retrieved {len(retrieved_texts)} chunks")  # DEBUG
-    print(f"Best similarity: {1 - min(distances) if distances else 0}")  # DEBUG
-    print(f"First chunk: {retrieved_texts[0][:200] if retrieved_texts else 'NONE'}")  # DEBUG
-
-    best_similarity = 1 - min(distances) if distances else 0
-    grounded = best_similarity >= GROUNDING_MIN_SIMILARITY
-
-    if not grounded:
-        answer = "This doesn't appear to be covered in the paper."
-    else:
-        context = "\n\n---\n\n".join(retrieved_texts)
-        answer = call_llm(QA_PROMPT.format(context=context, question=question))
-
-    turn: QATurn = {
-        "question": question,
-        "answer": answer,
-        "retrieved_chunk_ids": retrieved_ids,
-        "grounded": grounded,
-    }
-
-    history = state.get("qa_history", [])
-    return {"qa_history": history + [turn]}
-    '''
-
 def qa_node(state: AgentState, question: str) -> dict:
     collection = state["vector_store_ref"]
     q_vec = embed_texts([question])[0]
