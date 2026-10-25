@@ -29,6 +29,9 @@ QA is intentionally **not** part of the compiled graph. It's a repeated, interac
 
 **State shape**: see `state.py`. Full `AgentState` TypedDict — paper metadata, parsed text, chunk list, vector store handle, the generated briefing, and `qa_history` (list of Q/A/grounding-flag turns) all live in one object for the session.
 
+## Flow Diagram
+[![Architecture diagram of itsaugustine04/autonomous-arxiv-paper-digest-qa-agent](https://gitdiagram.com/itsaugustine04/autonomous-arxiv-paper-digest-qa-agent/diagram.png)](https://gitdiagram.com/itsaugustine04/autonomous-arxiv-paper-digest-qa-agent?utm_source=readme&utm_medium=picture)
+
 ## Setup & Run
 
 **Step 1: Clone the repo and create a virtual environment**
